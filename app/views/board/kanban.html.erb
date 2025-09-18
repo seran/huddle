@@ -1,0 +1,40 @@
+<div class="h-screen bg-gradient-to-br from-slate-50 to-slate-100 overflow-x-auto p-4">
+  <div class="mb-4">
+    <h1 class="text-2xl font-bold text-slate-800 mb-2"><%= @board.name %></h1>
+    <!-- <p class="text-slate-600">Drag and drop tasks between columns</p> -->
+  </div>
+
+  <div class="grid auto-cols-max grid-flow-col gap-4 pb-6">
+    <% @board.lists.each do |l| %>
+      <div class="flex flex-col w-72">
+        <div
+          class="
+            flex-1 bg-slate-100 border-slate-300 border-2 border-dashed
+            rounded-lg p-4 min-h-[580px] transition-colors
+          "
+        >
+          <div class="mb-2">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold mb-1"><%= l.name %></h2>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <% l.tasks.each do |t| %>
+              <div
+                class="
+                  bg-white rounded-lg p-4 shadow-sm border
+                  border-slate-200 cursor-move hover:shadow-md
+                  transition-shadow
+                "
+              >
+                <%= link_to task_view_path(t.id) do %>
+                  <%= t.title %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
