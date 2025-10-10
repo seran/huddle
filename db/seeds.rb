@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+[ "One", "Two" ].each do |board_name|
+  board = Board.find_or_create_by!(name: board_name)
+
+  [ "Task 1", "Task 2" ].each do |task|
+    Task.find_or_create_by!(title: task, board_id: board.id)
+  end
+end
