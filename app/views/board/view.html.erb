@@ -1,0 +1,11 @@
+
+
+  <h1>Board: <%= @board.name %></h1>
+
+  <h2>Tasks</h2>
+
+  <ul>
+    <% @board.tasks.each do |t| %>
+    <li><%= link_to task_view_path(t.id) do %><%= t.title %><% end %></li>
+    <% end %>
+  </ul>
