@@ -1,7 +1,16 @@
+<div class="grid grid-rows-3 gap-4">
+	<div>
+		<h1>Boards</h1>
+	</div>
+<div>
+	<ul>
+	<% @boards.each do |board| %>
+	<li><%= link_to board_view_path(board.id) do %><%= board.name %><% end %></li>
+	<% end %>
+</ul>
+</div>
 
-		Boards
-		<ul>
-			<% @boards.each do |board| %>
-			<li><%= link_to board_view_path(board.id) do %><%= board.name %><% end %></li>
-			<% end %>
-		</ul>
+<div>
+	<button class="btn-primary">Button for testing</button>
+</div>
+</div>
